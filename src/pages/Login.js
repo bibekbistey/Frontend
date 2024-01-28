@@ -38,6 +38,10 @@ const Login = () => {
     
     navigate("/home");
   };
+
+  const forgetPassword=()=>{
+    navigate("/forget-password");
+  }
   
 
   return (
@@ -66,6 +70,10 @@ const Login = () => {
           <button className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full" type="submit">
             Login
           </button>
+
+          <Link to="/forgot-password" className="block mt-4 text-center text-red-500 hover:underline font-semibold">
+      Forgot Password?
+    </Link>
 
           <button
             onClick={loginAsGuest}

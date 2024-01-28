@@ -15,6 +15,7 @@ import Users from "./pages/admin/Users";
 import DoctorAppointments from "./pages/doctor/DoctorAppointments";
 import Profile from "./pages/doctor/Profile";
 import './styles/main.css';
+import ForgotPassword from "./pages/forgetPassword";
 function App() {
   const { loading } = useSelector((state) => state.alerts);
   return (
@@ -38,6 +39,16 @@ function App() {
                 <ProtectedRoute>
                   <Users />
                 </ProtectedRoute>
+              }
+            />
+
+
+            <Route
+              path="/forgot-password"
+              element={
+                <PublicRoute>
+                  <ForgotPassword />
+                </PublicRoute>
               }
             />
 
@@ -116,6 +127,15 @@ function App() {
                 <ProtectedRoute>
                   <HomePage />
                 </ProtectedRoute>
+              }
+            />
+
+<Route
+              path="/home"
+              element={
+                <PublicRoute>
+                  <HomePage />
+                </PublicRoute>
               }
             />
 
