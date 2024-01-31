@@ -16,6 +16,7 @@ import DoctorAppointments from "./pages/doctor/DoctorAppointments";
 import Profile from "./pages/doctor/Profile";
 import './styles/main.css';
 import ForgotPassword from "./pages/forgetPassword";
+import ErrorPage from "./pages/ErrorPage";
 function App() {
   const { loading } = useSelector((state) => state.alerts);
   return (
@@ -48,6 +49,15 @@ function App() {
               element={
                 <PublicRoute>
                   <ForgotPassword />
+                </PublicRoute>
+              }
+            />
+
+<Route
+              path="/error"
+              element={
+                <PublicRoute>
+                  <ErrorPage />
                 </PublicRoute>
               }
             />
