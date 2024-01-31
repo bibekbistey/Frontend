@@ -13,7 +13,7 @@ const Register = () => {
   // const [passwordStrength, setPasswordStrength] = useState(0);
   const [passwordStrength, setPasswordStrength] = useState({ score: 0, label: '' });
 
-
+  // Password Strength
   const checkPasswordStrength = (password) => {
     const result = zxcvbn(password);
     // setPasswordStrength(result.score);
@@ -22,10 +22,7 @@ const Register = () => {
       label: getStrengthLabel(result.score),
     });
   };
-  // const getStrengthLabel = (score) => {
-  //   const labels = ['Very Weak', 'Weak', 'Moderate', 'Strong', 'Very Strong'];
-  //   return labels[score];
-  // };
+ 
 
   const getStrengthLabel = (score) => {
     switch (score) {
@@ -59,7 +56,7 @@ const Register = () => {
         return 'black'; // Default color
     }
   };
-
+  // Password Complexity
   const isPasswordComplex = (password) => {
     // Check if the password includes at least one uppercase letter, one lowercase letter, one number, and one special character
     const complexityRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
@@ -75,8 +72,8 @@ const Register = () => {
 
       const password = values.password;
 
-      // Check if the password is at least 9 characters
-      if (password.length >= 9) {
+      // Check if the password is at least 8 characters
+      if (password.length >= 8) {
         // Check if the password meets complexity requirements
         if (isPasswordComplex(password)) {
           const res = await axios.post("/api/v1/user/register", values);
